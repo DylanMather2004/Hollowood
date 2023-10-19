@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://df6fluhar28nn"]
+
+[ext_resource type="Texture2D" uid="uid://ys13n8qe5by4" path="res://Art/Woodland magician-Sheet.png" id="1_p1b6i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kn2ux"]
+radius = 0.211542
+height = 0.744892
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0308497, 0.0366588, 0)
+texture = ExtResource("1_p1b6i")
+hframes = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_kn2ux")
