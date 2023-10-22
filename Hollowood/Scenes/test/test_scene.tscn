@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://bajqdyewxrwp0"]
+[gd_scene load_steps=9 format=3 uid="uid://bajqdyewxrwp0"]
+
+[ext_resource type="PackedScene" uid="uid://df6fluhar28nn" path="res://Prefabs/player.tscn" id="1_lkjot"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0cp0"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ija3s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6k0hm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kayt2"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eagch"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gmxo"]
+albedo_color = Color(1, 0, 0.180392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4x5tc"]
+albedo_color = Color(1, 1, 0, 1)
 
 [node name="TestScene" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3.63449, 0, 0, 0, 3.63449, 0, 0, 0, 3.63449, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.998903, 0, 0, 0, 0.998903, 0, 0, 0, 0.998903, 0, 0, 0)
+shape = SubResource("BoxShape3D_g0cp0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ija3s")
+
+[node name="Player" parent="." instance=ExtResource("1_lkjot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0658479, 1.73998, -0.265315)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.958998, 0.283413, 0, -0.283413, 0.958998, -0.0658479, 0.436515, 2.29147)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26936, 4.03665)
+mesh = SubResource("BoxMesh_6k0hm")
+surface_material_override/0 = SubResource("StandardMaterial3D_kayt2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47352, 1.26936, 0.053369)
+mesh = SubResource("BoxMesh_6k0hm")
+surface_material_override/0 = SubResource("StandardMaterial3D_eagch")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87084, 1.26936, 0.053369)
+mesh = SubResource("BoxMesh_6k0hm")
+surface_material_override/0 = SubResource("StandardMaterial3D_8gmxo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0452845, 1.26936, -4.10044)
+mesh = SubResource("BoxMesh_6k0hm")
+surface_material_override/0 = SubResource("StandardMaterial3D_4x5tc")
