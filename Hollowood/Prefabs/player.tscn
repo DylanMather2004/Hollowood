@@ -5,15 +5,20 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kn2ux"]
 radius = 0.211542
-height = 0.744892
+height = 0.651047
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_aglxv")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 texture = ExtResource("1_p1b6i")
 hframes = 13
+frame = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_kn2ux")
+
+[node name="rotatetimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="rotatetimer" to="." method="_on_rotatetimer_timeout"]
